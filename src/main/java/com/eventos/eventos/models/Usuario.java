@@ -1,5 +1,6 @@
 package com.eventos.eventos.models;
 
+import com.eventos.eventos.dtos.UsuarioDTO;
 import jakarta.persistence.*;
 
 import java.util.Date;
@@ -43,6 +44,18 @@ public class Usuario {
         this.perfil = perfil;
         this.verificado = verificado;
     }
+
+    public Usuario(UsuarioDTO usuarioDTO) {
+        this.id = usuarioDTO.getId();
+        this.nome = usuarioDTO.getNome();
+        this.email = usuarioDTO.getEmail();
+        this.senha = usuarioDTO.getSenha();
+        this.cpf = usuarioDTO.getCpf();
+        this.dataNascimento = usuarioDTO.getDataNascimento();
+        this.perfil = usuarioDTO.getPerfil();
+        this.verificado = usuarioDTO.getVerificado();
+    }
+
     public Long getId() {
         return id;
     }
