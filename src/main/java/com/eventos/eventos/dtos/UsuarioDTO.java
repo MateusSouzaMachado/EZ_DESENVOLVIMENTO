@@ -1,7 +1,7 @@
 package com.eventos.eventos.dtos;
 
 import com.eventos.eventos.models.Usuario;
-import jakarta.persistence.*;
+
 import java.util.Date;
 
 public class UsuarioDTO {

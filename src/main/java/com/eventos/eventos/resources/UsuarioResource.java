@@ -1,7 +1,6 @@
 package com.eventos.eventos.resources;
 
 import com.eventos.eventos.dtos.UsuarioDTO;
-
 import com.eventos.eventos.models.Usuario;
 import com.eventos.eventos.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +17,7 @@ public class UsuarioResource {
     @GetMapping("{id}")
     public ResponseEntity<UsuarioDTO> buscarUsuarioPorId(@PathVariable Long id) {
         Usuario usuario = usuarioService.buscarUsuarioPorId(id);
-            return ResponseEntity.ok(new UsuarioDTO(usuario));
+        return ResponseEntity.ok(new UsuarioDTO(usuario));
     }
 
     @GetMapping("/buscar")
@@ -27,12 +26,20 @@ public class UsuarioResource {
         return ResponseEntity.ok(usuarioDTO);
     }
 
-    @PostMapping("/")
+    @PostMapping()
     public ResponseEntity<UsuarioDTO> criarUsuario(@RequestBody UsuarioDTO usuarioDTO) {
-        return ResponseEntity.ok( usuarioService.salvarUsuario(usuarioDTO));
+        return ResponseEntity.ok(usuarioService.salvarUsuario(usuarioDTO));
     }
 
+    @PutMapping()
+    public ResponseEntity<UsuarioDTO> atualizarUsuario(@RequestBody UsuarioDTO usuarioDTO) {
+        return ResponseEntity.ok(usuarioService.atualizarUsuario(usuarioDTO));
+    }
 
-
+    @DeleteMapping()
+    public ResponseEntity<Void> deletarUsuario(@PathVariable UsuarioDTO usuarioDTO) {
+        usuarioService.deletarUsuario(usuarioDTO.getId());
+        return ResponseEntity.noContent().build();
+    }
 
 }

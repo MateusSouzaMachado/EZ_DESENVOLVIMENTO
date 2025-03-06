@@ -6,6 +6,8 @@ import com.eventos.eventos.repositories.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import static java.util.Objects.isNull;
+
 @Service
 public class UsuarioService {
 
@@ -15,7 +17,6 @@ public class UsuarioService {
     public UsuarioDTO salvarUsuario(UsuarioDTO usuarioDTO) {
         Usuario usuario = new Usuario(usuarioDTO);
         return new UsuarioDTO(usuarioRepository.save(usuario));
-
     }
 
 //    public UsuarioDTO salvarUsuario(UsuarioDTO usuarioDTO) {
@@ -56,6 +57,21 @@ public class UsuarioService {
 
     public UsuarioDTO buscarUsuarioPorEmail(String email) {
         return new UsuarioDTO(usuarioRepository.findByEmail(email).orElseThrow(() -> new IllegalArgumentException("Usuário não encontrado")));
-
     }
+
+    public UsuarioDTO atualizarUsuario(UsuarioDTO usuarioDTO) {
+        if (isNull(usuarioDTO.getId())) {
+            throw new IllegalArgumentException("Id não pode ser nulo");
+        }
+        Usuario usuario = usuarioRepository.findById(usuarioDTO.getId()).orElseThrow(() -> new IllegalArgumentException("Usuário não encontrado"));
+        usuario = new Usuario(usuarioDTO);
+        usuarioRepository.save(usuario);
+        return new UsuarioDTO(usuario);
+    }
+
+    public void deletarUsuario(Long id) {
+        usuarioRepository.deleteById(id);
+    }
+
+
 }
