@@ -1,16 +1,11 @@
 package com.eventos.eventos.dtos;
 
-import com.eventos.eventos.enums.Estado;
-import com.eventos.eventos.models.Cidade;
-
-public class CidadeDTO {
+public class ProdutoraDTO {
     private Long id;
     private String nome;
-    private Estado estado;
+    private String cpfCnpj;
 
-    public CidadeDTO() {}
-
-    public CidadeDTO(Cidade cidade) {}
+    public ProdutoraDTO() {}
 
     public Long getId() {
         return id;
@@ -28,11 +23,11 @@ public class CidadeDTO {
         this.nome = nome;
     }
 
-    public Estado getEstado() {
-        return estado;
+    public String getCpfCnpj() {
+        return cpfCnpj;
     }
 
-    public void setEstado(Estado estado) {
-        this.estado = estado;
+    public void setCpfCnpj(String cpfCnpj) {
+        this.cpfCnpj = cpfCnpj;
     }
 }
