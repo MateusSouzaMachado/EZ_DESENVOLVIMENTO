@@ -23,7 +23,7 @@ public class CidadeResourse {
 
     @GetMapping("/buscar")
     public ResponseEntity<CidadeDTO> buscarCidadePorNome(@RequestParam String nome) {
-        CidadeDTO cidadeDTO = cidadeService.buscarUsuarioPorNome(nome);
+        CidadeDTO cidadeDTO = cidadeService.buscarCidadePorNome(nome);
         return ResponseEntity.ok(cidadeDTO);
     }
 

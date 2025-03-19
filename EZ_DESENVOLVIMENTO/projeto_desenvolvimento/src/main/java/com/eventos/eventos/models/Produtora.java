@@ -1,5 +1,6 @@
 package com.eventos.eventos.models;
 
+import com.eventos.eventos.dtos.ProdutoraDTO;
 import jakarta.persistence.*;
 
 import java.util.Objects;
@@ -21,6 +22,12 @@ public class Produtora {
         this.id = id;
         this.nome = nome;
         this.cpfCnpj = cpfCnpj;
+    }
+
+    public Produtora(ProdutoraDTO produtoraDTO) {
+        this.id = produtoraDTO.getId();
+        this.nome = produtoraDTO.getNome();
+        this.cpfCnpj = produtoraDTO.getCpfCnpj();
     }
 
     public Long getId() {

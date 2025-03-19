@@ -19,7 +19,7 @@ public class CidadeService {
         return cidadeRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Cidade não encontrada"));
     }
 
-    public CidadeDTO buscarUsuarioPorNome(String nome) {
+    public CidadeDTO buscarCidadePorNome(String nome) {
         return new CidadeDTO(cidadeRepository.findByNome(nome).orElseThrow(() -> new IllegalArgumentException("Cidade não encontrada")));
     }
 

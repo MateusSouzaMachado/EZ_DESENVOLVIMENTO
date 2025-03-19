@@ -1,11 +1,19 @@
 package com.eventos.eventos.dtos;
 
+import com.eventos.eventos.models.Produtora;
+
 public class ProdutoraDTO {
     private Long id;
     private String nome;
     private String cpfCnpj;
 
     public ProdutoraDTO() {}
+
+    public ProdutoraDTO(Produtora produtora) {
+        this.id = produtora.getId();
+        this.nome = produtora.getNome();
+        this.cpfCnpj = produtora.getCpfCnpj();
+    }
 
     public Long getId() {
         return id;
