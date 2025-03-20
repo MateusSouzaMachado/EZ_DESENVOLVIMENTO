@@ -20,13 +20,13 @@ public class ProdutoraResourse {
         return ResponseEntity.ok(new ProdutoraDTO(produtora));
     }
 
-    @GetMapping("/buscar")
+    @GetMapping("/buscar-nome")
     public ResponseEntity<ProdutoraDTO> buscarProdutoraPorNome(@RequestParam String nome) {
         ProdutoraDTO produtoraDTO = produtoraService.buscarProdutoraPorNome(nome);
         return ResponseEntity.ok(produtoraDTO);
     }
 
-    @GetMapping("/buscar")
+    @GetMapping("/buscar-cpf-cnpj")
     public ResponseEntity<ProdutoraDTO> buscarProdutoraPorCpfCnpj(@RequestParam String cpfCnpj) {
         ProdutoraDTO produtoraDTO = produtoraService.buscarProdutoraPorCpfCnpj(cpfCnpj);
         return ResponseEntity.ok(produtoraDTO);
