@@ -2,9 +2,8 @@ package com.eventos.eventos.dtos;
 
 import com.eventos.eventos.enums.Classificacao;
 import com.eventos.eventos.models.Evento;
-import jakarta.persistence.Column;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
+import com.eventos.eventos.models.Produtora;
+
 
 import java.util.Date;
 
@@ -18,6 +17,7 @@ public class EventoDTO {
     private String horaAbertura;
     private String imagem;
     private Classificacao classificacao;
+    private ProdutoraDTO produtoraDTO;
 
     public EventoDTO() {
     }
@@ -31,6 +31,8 @@ public class EventoDTO {
         this.horaAbertura = evento.getHoraAbertura();
         this.imagem = evento.getImagem();
         this.classificacao = evento.getClassificacao();
+        this.produtoraDTO = new ProdutoraDTO(evento.getProdutora());
+
     }
 
     public Long getId() {
@@ -96,4 +98,13 @@ public class EventoDTO {
     public void setClassificacao(Classificacao classificacao) {
         this.classificacao = classificacao;
     }
+
+    public ProdutoraDTO getProdutora() {
+        return produtoraDTO;
+    }
+
+    public void setProdutora(ProdutoraDTO produtoraDTO) {
+        this.produtoraDTO = produtoraDTO;
+    }
+
 }

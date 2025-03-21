@@ -27,6 +27,7 @@ public class Evento {
     @Enumerated(EnumType.STRING)
     private Classificacao classificacao;
 
+
     @ManyToOne
     @JoinColumn(name = "produtora_id")
     private Produtora produtora;
@@ -43,6 +44,7 @@ public class Evento {
         this.horaAbertura = eventoDTO.getHoraAbertura();
         this.imagem = eventoDTO.getImagem();
         this.classificacao = eventoDTO.getClassificacao();
+        this.produtora = new Produtora(eventoDTO.getProdutora());
     }
 
     public Evento(Long id, Date data, String descricao, String horaInicio, String horaFim, String horaAbertura, String imagem, Classificacao classificacao, Produtora produtora) {

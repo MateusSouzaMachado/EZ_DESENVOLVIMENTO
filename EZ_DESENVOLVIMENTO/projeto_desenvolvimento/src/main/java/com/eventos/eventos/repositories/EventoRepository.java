@@ -7,4 +7,6 @@ import java.util.Optional;
 
 public interface EventoRepository extends JpaRepository<Evento, Long> {
     Optional<Evento> findByDescricao(String descricao);
+
+
 }
